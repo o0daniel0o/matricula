@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Colegio Pitagoras</title>
+	<link rel="stylesheet" type="text/css" href="estilos3.css">
+	
+	<!--SLIDER-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	  <script>
+	    $(document).ready(function(){
+	      $('.slider').bxSlider();
+	    });
+	  </script>
+
+</head>
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB0FV4UYssLWQSEp-UXvTQ8eazvr8iTRiU",
+    authDomain: "caro-d2011.firebaseapp.com",
+    databaseURL: "https://caro-d2011.firebaseio.com",
+    projectId: "caro-d2011",
+    storageBucket: "caro-d2011.appspot.com",
+    messagingSenderId: "540290284590"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
+<body >
+
+	<header>
+		
+		<div class="menu">
+			<ul>
+				<li><a href="SMC.HTML">INICIO</a></li>
+				<li><a href="SMC2.HTML">SOMOS</a></li>
+				<li><a href="MATRICULA.HTML">MATRICULA</a></li>
+				
+				<li style="float:right"><a class="active" href="LISTA.HTML">LISTA DE MATRICULADOS</a></li>
+			</ul>
+			
+		</div>
+		
+	</header>
+
+	
+<form class="login"  >
+    <h1 class="login-title">ALUMNO(A)</h1>
+    <input type="text" class="login-input" placeholder="Email Adress" autofocus>
+    <input type="password" class="login-input" placeholder="Password">
+    <a href="formulario.html"><input type="button" value="INICIAR SESION" class="login-button" ></a>
+  <p class="login-lost">solo pueden registrarse alumnos de grado secundaria</p> 
+  </form>
+	
+	
+</body>
+</html>

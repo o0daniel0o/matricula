@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firebase Clase 2</title>
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css
+">
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyAiO1XIxi_hyIbwL-yIf3suOEHqE642u3k",
+	    authDomain: "clase2-cc718.firebaseapp.com",
+	    databaseURL: "https://clase2-cc718.firebaseio.com",
+	    projectId: "clase2-cc718",
+	    storageBucket: "",
+	    messagingSenderId: "3536198959"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+</head>
+<body>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Peliculas ...</h1>
+    </div>
+  </section>
+
+  <section class="section">
+  	<h2 class="subtitle"> Inserta el Peliculas: </h2>
+  	Nombre: <input id="movieName" class="input" type="text" placeholder="Text input">
+  	Genero: <input id="movieCategory" class="input" type="text" placeholder="Text input">
+  	Portada:  <input id="movieImage" class="input" type="text" placeholder="Text input">
+  	<a id="buttonSend" class="button">Publicar</a>
+
+  </section>
+
+  <section class="section">
+  	<h2 class="subtitle"> Coleccion Actual: </h2>
+
+  	<div id="movieContainer">
+  		
+  	</div>
+
+  </section>
+
+
+
+	<script type="text/javascript">
+		// https://firebase.google.com/docs/database/web/read-and-write?hl=es-419
+		// Inicializamos nuestra base de datos FIREBASE
+		var database = firebase.database();
+		// Leer
+		database.ref('movies/').once('value').then(function(snapshot) {
+			// Obtenemos la informacion de Movies en la base de datos
+			var totalMovies = snapshot.val();
+			// como es un objeto extraño, primero sacamos las llaves del objeto
+			var objectKeys = Object.keys(snapshot.val());
+			// inicializamos un template para insertar las peliculas
+			var movieTemplate = "";
+			// Iteramos sobre las llaves del objeto obtenidas
+			for (var i = 0; i < objectKeys.length; i++) {
+				// Obtenemos los datos con las llaves obtenidas de cada elemento del objeto (peliculas)
+				var movieName = totalMovies[objectKeys[i]].name;
+				var movieImage = totalMovies[objectKeys[i]].image;
+				var movieCategory = totalMovies[objectKeys[i]].category;
+				// Vamos preparando el template por cada pelicula
+				// y sobreescribiendo la variable movieTemplate
+				// para que tenga cada una de las peliculas
+				movieTemplate = movieTemplate + `<div>	
+					<div class="nameMovie">
+						${movieName}
+					</div>
+					<div class="imageMovie">
+						<img src="${movieImage}">
+					</div>
+					<div class="categoryMovie">
+						${movieCategory}
+					</div>
+					
+				<div>`
+				console.log(movieName, movieImage, movieCategory);
+			}
+			// Insertamos el template con todas las peliculas en el div correspondiente
+			document.getElementById("movieContainer").innerHTML =movieTemplate ;
+		});
+		// Agregamos logica al evento de click en el elemento button
+		document.getElementById("buttonSend").onclick = function () {
+			// Obtenemos los valores de los inputs que vamos a enviar a nuestra base de datos
+			var movieName = document.getElementById("movieName").value;
+			var movieCategory = document.getElementById("movieCategory").value;
+			var movieImage = document.getElementById("movieImage").value;
+			// Escribimos en nuestra base de datos con la funcion PUSH
+			database.ref('movies/').push({
+			  category: movieCategory,
+			  name: movieName,
+			  image: movieImage
+			});
+			// Resetamos los inputs para que queden en blanco despues de enviarlos
+			movieName = "";
+			movieImage = "";
+			movieCategory = "";
+		}
+	</script>
+</body>
+</html>

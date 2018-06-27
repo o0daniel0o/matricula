@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>intranet</title>
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"> <!-- Para que es?-->
+	<link rel="stylesheet" type="text/css" href="estilos.css">    							  <!--Defines el tipo y llamas a tus estilos -->
+
+	<!--Codigo Firebase-->
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+	<script>
+	  		// Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDPIl80lofmzqRk7e4mltDY7ixf3mXNQek",
+	    authDomain: "smc-pitagoras.firebaseapp.com",
+	    databaseURL: "https://smc-pitagoras.firebaseio.com",
+	    projectId: "smc-pitagoras",
+	    storageBucket: "smc-pitagoras.appspot.com",
+	    messagingSenderId: "410324074745"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<!-- Fin Firebase -->
+</head>
+
+<body>
+	<div id="login_div" class="main-div">
+	    <h3>Ingresa: </h3>
+	    <input type="email" placeholder="Email..." id="email_field" />
+	    <input type="password" placeholder="Password..." id="password_field" />
+	    <button onclick="login()">Login to Account</button>
+ 	</div>
+
+ 	<div id="register_div">
+	    <h3>Registro: </h3>
+	    <input type="email" placeholder="Email..." id="email_new" />
+	    <input type="password" placeholder="Password..." id="password_new" />
+	    <button onclick="register()">Register</button>
+  	</div>
+
+  	<div id="user_div" class="loggedin-div">
+	    <h3>Bienvenido Usuario</h3>
+	    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+	    <button onclick="logout()">Logout</button>
+  	</div>
+
+  	<div id="contenido">
+	    <p>Bienvenido!</p>
+	    <img src="https://www.comunidadxbox.com/wp-content/imagenes/img_8696.jpg">
+  	</div>
+</body>
+</html>

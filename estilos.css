@@ -1,0 +1,130 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+
+
+
+
+header .cole{
+	display: flex;
+}
+
+
+header .cole .nombre h1{
+	text-align: center;
+	font-size: 200%;
+}
+
+/* MENU */
+                .menu li{
+                	list-style: none;
+                	background-color: blue;
+                	float:left;
+                }
+                .menu ul{
+
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    background-color: #333;
+
+                }
+                .menu li a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    margin: 15px;
+                }
+                /*cambio de color*/
+                .menu li a:hover {
+                    background-color: #111;
+                }
+                .active {
+                    background-color: #4CAF50;
+                }
+
+
+                
+/*SLIDESHOW*/
+.titulo h2 {
+    text-align: center
+
+}
+/*NOTICIAS*/
+
+#links{
+    width:1024px;
+    height:auto;
+    position:relative;
+    margin:auto;
+}
+.info{
+    width:335px;
+    height:auto;
+    position:relative;
+    display:inline-block;
+    vertical-align:top;
+    overflow:hidden;
+}
+.imagen, .texto{
+    width:100%;
+    height:auto;
+    position:relative;
+    display:inline;
+}
+.texto{
+    height:auto;
+    text-align:center
+    }
+
+/*CONTACTO*/
+
+
+/*FOOTER*/
+
+/*imagenes*/
+.redes #twtr{
+    width: 50px;
+    height: 50px;
+
+}
+.redes #fb{
+    width: 50px;
+    height: 50px;
+}
+.redes #pint{
+    width: 50px;
+    height: 50px;
+}
+
+
+
